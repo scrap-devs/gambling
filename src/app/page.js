@@ -40,10 +40,10 @@ export default function Home() {
     }
   }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-
-      <h1 className="text-xl">Home</h1>
-      {showSession()}
-    </main>
+      <div className="flex flex-row-reverse w-screen bg-slate-900 h-screen"> 
+            <p className="text-white">{showSession()}</p>
+            
+        </div>
+    
   );
 }

@@ -25,10 +25,10 @@ export default function Login() {
   };
 
   return (
-    <section className="w-full h-screen flex items-center justify-center">
+    <section className="w-full h-screen bg-slate-800 flex items-center justify-center">
       <form
         className="p-6 w-full max-w-[400px] flex flex-col justify-between items-center gap-2 
-        border border-solid border-black bg-white rounded"
+        border border-solid border-black bg-slate-900 rounded"
         onSubmit={handleSubmit}>
         {error && <div className="text-black">{error}</div>}
         <h1 className="mb-5 w-full text-2xl font-bold">Sign In</h1>
