@@ -31,14 +31,14 @@ export default function Login() {
         border border-solid border-black bg-slate-900 rounded"
         onSubmit={handleSubmit}>
         {error && <div className="text-black">{error}</div>}
-        <h1 className="mb-5 w-full text-2xl font-bold">Sign In</h1>
-        <label className="w-full text-sm">Email</label>
+        <h1 className="mb-5 w-full text-white text-2xl font-bold">Sign In</h1>
+        <label className="w-full text-white text-sm">Email</label>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="example@gmail.com"
           className="w-full h-8 border border-solid border-black rounded p-2"
           name="email" />
-        <label className="w-full text-sm">Password</label>
+        <label className="w-full text-white text-sm">Password</label>
         <div className="flex w-full">
           <input
             type="password"
@@ -46,12 +46,12 @@ export default function Login() {
             className="w-full h-8 border border-solid border-black rounded p-2"
             name="password" />
         </div>
-        <button className="w-full border border-solid border-black rounded">
+        <button className="w-full border border-solid border-white text-white rounded-xl">
           Sign In
         </button>
         <Link
           href="/register"
-          className="text-sm text-[#888] transition duration-150 ease hover:text-black">
+          className="text-sm text-[#888] transition duration-150 ease hover:text-white">
           Dont have an account?
         </Link>
       </form>
