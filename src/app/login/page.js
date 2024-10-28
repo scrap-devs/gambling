@@ -46,7 +46,7 @@ export default function Login() {
             className="w-full h-8 border border-solid border-black rounded p-2"
             name="password" />
         </div>
-        <button className="w-full border border-solid border-black rounded">
+        <button className="w-full border border-solid border-white text-white rounded">
           Sign In
         </button>
         <Link
