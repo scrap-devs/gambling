@@ -35,10 +35,10 @@ export default function Login() {
         <label className="w-full text-white text-sm">Email</label>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="example@gmail.com"
           className="w-full h-8 border border-solid border-black rounded p-2"
           name="email" />
-        <label className="w-full text-sm text-white">Password</label>
+        <label className="w-full text-sm">Password</label>
         <div className="flex w-full">
           <input
             type="password"
@@ -46,12 +46,12 @@ export default function Login() {
             className="w-full h-8 border border-solid border-black rounded p-2"
             name="password" />
         </div>
-        <button className="w-full text-white border border-solid border-white rounded">
+        <button className="w-full border border-solid border-white text-white rounded">
           Sign In
         </button>
         <Link
           href="/register"
-          className="text-sm text-[#888] transition duration-150 ease hover:text-black">
+          className="text-sm text-[#888] transition duration-150 ease hover:text-white">
           Dont have an account?
         </Link>
       </form>
