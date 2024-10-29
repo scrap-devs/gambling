@@ -31,14 +31,14 @@ export default function Login() {
         border border-solid border-black bg-slate-900 rounded-xl"
         onSubmit={handleSubmit}>
         {error && <div className="text-white">{error}</div>}
-        <h1 className="mb-5 w-full text-2xl text-white font-bold">Sign In</h1>
+        <h1 className="mb-5 w-full text-2xl text-white font-bold">Sign in</h1>
         <label className="w-full text-white text-sm">Email</label>
         <input
           type="email"
           placeholder="example@gmail.com"
           className="w-full h-8 border border-solid border-black rounded p-2"
           name="email" />
-        <label className="w-full text-sm">Password</label>
+        <label className="w-full text-sm text-white">Password</label>
         <div className="flex w-full">
           <input
             type="password"

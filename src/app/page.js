@@ -8,12 +8,5 @@ import Sidenav from "./components/Sidenav";
 
 export default function Home() {
   
-  return (
-      <div className="w-screen bg-slate-900 h-screen"> 
-            
-            
-            
-       </div>
-    
-  );
+  return (<></>);
 }
