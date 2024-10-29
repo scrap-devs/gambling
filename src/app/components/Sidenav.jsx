@@ -16,7 +16,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       if (status === "authenticated") {
         return (
           <button
-            className="border border-solid border-black rounded"
+            className=""
             onClick={() => {
               signOut({ redirect: false }).then(() => {
                 router.push("/");
@@ -35,7 +35,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
         return (
           <Link
             href="/login"
-            className="border border-solid border-black rounded"
+            className=""
           >
             Sign In
           </Link>
@@ -158,9 +158,9 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
               <Link
                 onClick={() => setSidebarOpen(false)}
                 href="/jobs"
-                className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100  font-light hover:font-semibold"
+                className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100  font-light hover:font-semibold transistion-all duration-150"
               >
-                <span className="flex items-center text-base text-gray-900 rounded-lg hover:bg-gray-100  hover:font-semibold">
+                <span className="flex items-center text-base text-gray-900 rounded-lg hover:bg-gray-100  hover:font-semibold transistion-all duration-150">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -183,12 +183,12 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
                         : "opacity-100 ml-3 block"
                     }ml-3 whitespace-nowrap `}
                   >
-                    Sign Up
+                    {showSession()}
                   </span>
                 </span>
               </Link>
             </li>
-            <li>{showSession()}</li>
+            <li></li>
           </ul>
         </div>
 
