@@ -42,6 +42,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
         )
       }
     }
+
   // Define state for sidebar expansion
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
@@ -50,10 +51,11 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
 
   // Effect to add or remove a class to the body element based on sidebar expansion
   useEffect(() => {
+    const body = document.querySelector("body");
     if (sidebarExpanded) {
-      document.querySelector("body")?.classList.add("sidebar-expanded");
+      body?.classList.add("sidebar-expanded");
     } else {
-      document.querySelector("body")?.classList.remove("sidebar-expanded");
+      body?.classList.remove("sidebar-expanded");
     }
   }, [sidebarExpanded]);
 
@@ -74,11 +76,12 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
         ref={sidebar}
         className={`fixed flex flex-col z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:w-64  w-72 bg-white lg:sidebar-expanded:w-20 shrink-0 border-r border-gray-200 sm:translate-x-0 p-4 transition-all duration-200 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-72"
-        }`}
+        } ${sidebarExpanded ? "w-64" : "w-20"}`}
       >
         {/* Sidebar header */}
         <div className="flex justify-between pr-3 sm:px-2">
           {/* Sidebar Logo */}
+
           <Link href="/">
             <span
               className={`${
@@ -94,6 +97,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
               />
             </span>
           </Link>
+
 
           {/* Sidebar Icon (Collapsed) */}
           <Link href="/">
@@ -112,12 +116,8 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
 
         {/* Links */}
         <div className="space-y-4">
-          <p
-            className={`${
-              sidebarExpanded ? "lg:hidden" : "block"
-            } px-2 text-xs font-base text-gray-400 uppercase`}
-          >
-            Actions
+          <p className={`${sidebarExpanded ? "lg:hidden" : "block"} px-2 text-xs font-base text-gray-400 uppercase`}>
+            Main
           </p>
           <ul className="space-y-2">
             <li>
@@ -149,7 +149,41 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
                         : "opacity-100 ml-3 block"
                     }ml-3 whitespace-nowrap `}
                   >
-                    Write a Blog
+                    Games
+                  </span>
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={() => setSidebarOpen(false)}
+                href="/jobs"
+                className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100  font-light hover:font-semibold"
+              >
+                <span className="flex items-center text-base text-gray-900 rounded-lg hover:bg-gray-100  hover:font-semibold">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                    />
+                  </svg>
+
+                  <span
+                    className={`${
+                      sidebarExpanded
+                        ? "lg:hidden opacity-0 ml-0"
+                        : "opacity-100 ml-3 block"
+                    }ml-3 whitespace-nowrap `}
+                  >
+                    Sign Up
                   </span>
                 </span>
               </Link>
@@ -162,7 +196,10 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
         <div className="pt-3 lg:inline-flex  mt-auto ">
           <div className="flex-1" />
           <div className="px-3 py-2 justify-end">
-            <button onClick={() => setSidebarExpanded(!sidebarExpanded)}>
+            <button onClick={() => {
+              setSidebarExpanded(!sidebarExpanded);
+              setSidebarOpen(!sidebarOpen);
+              }}>
               <span className="sr-only">Expand / collapse sidebar</span>
               <svg
                 className={`w-6 h-6 hidden lg:block fill-current ${
