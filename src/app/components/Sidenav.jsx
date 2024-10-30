@@ -192,6 +192,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       <button
         onClick={() => {
           setSidebarExpanded(!sidebarExpanded);
+          setSidebarOpen(!sidebarOpen);
         }}
       >
         <span className="sr-only">Expand / collapse sidebar</span>
