@@ -52,11 +52,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
   // Effect to add or remove a class to the body element based on sidebar expansion
   useEffect(() => {
     const body = document.querySelector("body");
-    if (sidebarExpanded) {
-      body?.classList.add("sidebar-expanded");
-    } else {
-      body?.classList.remove("sidebar-expanded");
-    }
+    body.classList.toggle("sidebar-expanded", sidebarExpanded)
   }, [sidebarExpanded]);
 
   return (
@@ -72,54 +68,51 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
 
       {/* Sidebar */}
       <div
-        id="sidebar"
-        ref={sidebar}
-        className={`fixed flex flex-col z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:w-64  w-72 bg-white lg:sidebar-expanded:w-20 shrink-0 border-r border-gray-200 sm:translate-x-0 p-4 transition-all duration-200 ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-72"
-        } ${sidebarExpanded ? "w-64" : "w-20"}`}
+  id="sidebar"
+  ref={sidebar}
+  className={`fixed flex flex-col z-40 left-0 top-0 h-screen overflow-y-scroll no-scrollbar ${
+    sidebarExpanded ? "w-64" : "w-20"
+  } bg-white border-r border-gray-200 p-4 transition-all duration-200 ${
+    sidebarOpen ? "translate-x-0" : "-translate-x-72"
+  }`}
+>
+  {/* Sidebar header */}
+  <div className="flex justify-between pr-3 sm:px-2">
+    {/* Sidebar Logo */}
+    <Link href="/">
+      <span
+        className={`${
+          sidebarExpanded ? "lg:hidden" : "block"
+        } welcome-step text-2xl font-medium tracking-tighter text-black focus:outline-none focus:ring whitespace-nowrap cursor-pointer`}
       >
-        {/* Sidebar header */}
-        <div className="flex justify-between pr-3 sm:px-2">
-          {/* Sidebar Logo */}
+        <Image
+          className="mt-2 mb-8 h-100 w-32"
+          src="/openai.png"
+          height={32}
+          width={300}
+          alt="logo"
+        />
+      </span>
+    </Link>
 
-          <Link href="/">
-            <span
-              className={`${
-                sidebarExpanded ? "lg:hidden" : "block"
-              }  welcome-step text-2xl font-medium tracking-tighter text-black focus:outline-none focus:ring whitespace-nowrap cursor-pointer`}
-            >
-              <Image
-                className="mt-2 mb-8 h-100 w-32"
-                src="/openai.png"
-                height={32}
-                width={300}
-                alt="logo"
-              />
-            </span>
-          </Link>
+    {/* Sidebar Icon (Collapsed) */}
+    <Link href="/">
+      <Image
+        className={`${
+          !sidebarExpanded ? "lg:hidden" : "block"
+        } mt-1 mb-8 h-8 w-8`}
+        src="/openai-icon.png"
+        height={100}
+        width={100}
+        alt="logo"
+      />
+    </Link>
+  </div>
 
-
-          {/* Sidebar Icon (Collapsed) */}
-          <Link href="/">
-            <Image
-              className={`${
-                !sidebarExpanded ? "lg:hidden" : "block"
-              } mt-1 mb-8 h-8 w-8`}
-              src="/openai-icon.png"
-              height={100}
-              width={100}
-              alt="logo"
-            />
-            
-          </Link>
-        </div>
-
-        {/* Links */}
-        <div className="space-y-4">
-          <p className={`${sidebarExpanded ? "lg:hidden" : "block"} px-2 text-xs font-base text-gray-400 uppercase`}>
-            Main
-          </p>
-          <ul className="space-y-2">
+  {/* Links */}
+  <div className="space-y-4">
+    {/* Rest of the sidebar content here */}
+    <ul className="space-y-2">
             <li>
               <Link
                 onClick={() => setSidebarOpen(false)}
@@ -145,8 +138,8 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
                   <span
                     className={`${
                       sidebarExpanded
-                        ? "lg:hidden opacity-0 ml-0"
-                        : "opacity-100 ml-3 block"
+                        ? "opacity-100 ml-3 block"
+                        :  "lg:hidden opacity-0 ml-0"
                     }ml-3 whitespace-nowrap `}
                   >
                     Games
@@ -179,8 +172,8 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
                   <span
                     className={`${
                       sidebarExpanded
-                        ? "lg:hidden opacity-0 ml-0"
-                        : "opacity-100 ml-3 block"
+                        ? "opacity-100 ml-3 block"
+                        :  "lg:hidden opacity-0 ml-0"
                     }ml-3 whitespace-nowrap `}
                   >
                     {showSession()}
@@ -190,35 +183,36 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
             </li>
             <li></li>
           </ul>
-        </div>
+  </div>
 
-        {/* Expand / collapse button */}
-        <div className="pt-3 lg:inline-flex  mt-auto ">
-          <div className="flex-1" />
-          <div className="px-3 py-2 justify-end">
-            <button onClick={() => {
-              setSidebarExpanded(!sidebarExpanded);
-              setSidebarOpen(!sidebarOpen);
-              }}>
-              <span className="sr-only">Expand / collapse sidebar</span>
-              <svg
-                className={`w-6 h-6 hidden lg:block fill-current ${
-                  !sidebarExpanded ? "rotate-0" : "rotate-180"
-                }`}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M10.5 19.5L3 12M3 12L10.5 4.5M3 12H21"
-                  stroke="#0F172A"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
+  {/* Expand / collapse button */}
+  <div className="pt-3 lg:inline-flex mt-auto">
+    <div className="flex-1" />
+    <div className="px-3 py-2 justify-end">
+      <button
+        onClick={() => {
+          setSidebarExpanded(!sidebarExpanded);
+        }}
+      >
+        <span className="sr-only">Expand / collapse sidebar</span>
+        <svg
+          className={`w-6 h-6 fill-current ${
+            !sidebarExpanded ? "rotate-180" : "rotate-0"
+          }`}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10.5 19.5L3 12M3 12L10.5 4.5M3 12H21"
+            stroke="#0F172A"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
     </>
   );
 }
