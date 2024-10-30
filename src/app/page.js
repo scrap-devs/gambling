@@ -8,5 +8,8 @@ import Sidenav from "./components/Sidenav";
 
 export default function Home() {
   
-  return (<></>);
+  return (
+  <>
+  <p>jfkdjlkj</p>
+  </>);
 }
