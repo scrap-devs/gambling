@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (!mounted) return null; // Avoids rendering until mounted
+  if (!mounted) return null; // Av oids rendering until mounted
 
   return (
     <html lang="en">

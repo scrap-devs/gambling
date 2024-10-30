@@ -7,6 +7,7 @@ import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
+
 // Define the Sidenav component
 export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
     const { status } = useSession();
@@ -87,7 +88,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       >
         <Image
           className="mt-2 mb-8 h-100 w-32"
-          src=""
+          src="/images/download.jpeg"
           height={32}
           width={300}
           alt="logo"
@@ -101,7 +102,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
         className={`${
           !sidebarExpanded ? "lg:hidden" : "block"
         } mt-1 mb-8 h-8 w-8`}
-        src="/openai-icon.png"
+        src="/images/download.jpeg"
         height={100}
         width={100}
         alt="logo"
