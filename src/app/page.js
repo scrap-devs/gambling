@@ -10,6 +10,6 @@ export default function Home() {
   
   return (
   <>
-  <p>jfkdjlkj</p>
+  <p>Whats up guys </p>
   </>);
 }

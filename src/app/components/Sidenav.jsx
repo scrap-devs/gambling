@@ -87,7 +87,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       >
         <Image
           className="mt-2 mb-8 h-100 w-32"
-          src="/openai.png"
+          src=""
           height={32}
           width={300}
           alt="logo"

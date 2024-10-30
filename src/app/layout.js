@@ -10,21 +10,21 @@ import React, { useEffect, useState } from 'react';
 const roboto = Roboto({ subsets: ['latin'], weight: '300' });
 
 export default function RootLayout({ children }) {
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  // State to track if the viewport is in mobile mode
   const [isMobile, setIsMobile] = useState(false);
-  
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true); // Marks the component as mounted
     const handleResize = () => setIsMobile(window.innerWidth < 768);
 
-    // Initial resize check and event listener setup
-    handleResize();
+    handleResize(); // Initial resize check
     window.addEventListener("resize", handleResize);
 
-    // Cleanup: remove event listener on unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  if (!mounted) return null; // Avoids rendering until mounted
 
   return (
     <html lang="en">
