@@ -26,6 +26,7 @@ export default function Profile() {
               src="/images/download.jpeg" // Need to be pulled from database
               width={64}
               height={64}
+              alt="Profile picture"
             ></Image>
             Profile picture
           </div>
