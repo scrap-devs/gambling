@@ -10,10 +10,11 @@ export default function Home() {
   
   return (
     <div style={{ '--header-zIndex': 100, paddingRight: '6px' }} className="relative z-[100] pr-1.5">
-    <div className="flex h-full justify-center relative">
+    <div className="flex h-full bg-gray-800 justify-center relative">
       <div className="w-full">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
+            
             <Link
               href="/"
               aria-label="Home"
@@ -49,5 +50,5 @@ export default function Home() {
       </div>
     </div>
   </div>
-  );
+  )
 }

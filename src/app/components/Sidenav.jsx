@@ -135,7 +135,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       {/* Sidebar backdrop (visible on mobile only) */}
       <div
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        className={`fixed inset-0 border-r border-gray-200 sm:translate-x-0 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${
+        className={`fixed inset-0 border-r bg-gray-800 border-gray-200 sm:translate-x-0 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200 ${
           sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         aria-hidden="true"
@@ -145,14 +145,14 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       <div
   id="sidebar"
   ref={sidebar}
-  className={`fixed flex flex-col z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar bg-white lg:sidebar-expanded:w-20 shrink-0 ${
+  className={`fixed flex flex-col bg-gray-800 z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar bg-white lg:sidebar-expanded:w-20 shrink-0 ${
     sidebarExpanded ? "w-64" : "w-20"
   } bg-white border-r border-gray-200 p-4 transition-all duration-200 ${
     sidebarOpen ? "translate-x-0" : "-translate-x-72"
   }`}
 >
   {/* Sidebar header */}
-  <div className="flex justify-between pr-3 sm:px-2">
+  <div className="flex bg-gray-800 justify-between pr-3 sm:px-2">
     {/* Sidebar Logo */}
     <Link href="/">
       <span
@@ -193,7 +193,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
               <Link
                 onClick={() => setSidebarOpen(false)}
                 href={item.href}
-                className="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 transition-colors duration-150"
+                className="flex items-center p-2 text-base text-white rounded-lg hover:bg-gray-100 transition-colors duration-150"
               >
                 <span className="flex items-center">
                   {item.icon}
