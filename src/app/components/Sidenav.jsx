@@ -146,13 +146,13 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
   id="sidebar"
   ref={sidebar}
   className={`fixed flex flex-col bg-gray-400 z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:sidebar-expanded:w-20 shrink-0 ${
-    sidebarExpanded ? "w-64" : "w-20"
-  } bg-white border-r border-gray-200 p-4 transition-all duration-200 ${
+    sidebarExpanded ? "w-56" : "w-20"
+  } p-4 transition-all duration-200 ${
     sidebarOpen ? "translate-x-0" : "-translate-x-72"
   }`}
 >
   {/* Sidebar header */}
-  <div className="flex bg-gray-800 justify-between pr-3 sm:px-2">
+  <div className="flex bg-gray-400 justify-between pr-3 sm:px-2">
     {/* Sidebar Logo */}
     <Link href="/">
       <span
@@ -161,10 +161,10 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
         } welcome-step text-2xl font-medium tracking-tighter text-black focus:outline-none focus:ring whitespace-nowrap cursor-pointer`}
       >
         <Image
-          className="mt-2 mb-8 h-100 w-32"
+          className="mt-2 mb-8 h-100 w-100"
           src="/images/download.jpeg"
           height={32}
-          width={300}
+          width={32}
           alt="logo"
         />
       </span>
@@ -177,8 +177,8 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
           !sidebarExpanded ? "lg:hidden" : "block"
         } mt-1 mb-8 h-8 w-8`}
         src="/images/download.jpeg"
-        height={100}
-        width={100}
+        height={32}
+        width={32}
         alt="logo"
       />
     </Link>
@@ -193,7 +193,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
               <Link
                 onClick={() => setSidebarOpen(false)}
                 href={item.href}
-                className="flex items-center p-2 text-base text-white rounded-lg hover:bg-gray-100 transition-colors duration-150"
+                className="flex items-center p-3 text-base text-white rounded-lg hover:bg-gray-500 transition-colors duration-150"
               >
                 <span className="flex items-center">
                   {item.icon}
