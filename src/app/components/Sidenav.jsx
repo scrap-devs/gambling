@@ -145,7 +145,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       <div
   id="sidebar"
   ref={sidebar}
-  className={`fixed flex flex-col bg-gray-800 z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar bg-white lg:sidebar-expanded:w-20 shrink-0 ${
+  className={`fixed flex flex-col bg-gray-400 z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:sidebar-expanded:w-20 shrink-0 ${
     sidebarExpanded ? "w-64" : "w-20"
   } bg-white border-r border-gray-200 p-4 transition-all duration-200 ${
     sidebarOpen ? "translate-x-0" : "-translate-x-72"

@@ -41,6 +41,7 @@ export default function Home() {
                 type="button"
                 className="inline-flex items-center gap-2 justify-center rounded font-semibold whitespace-nowrap transition disabled:pointer-events-none disabled:opacity-50 focus:outline-2 focus:outline-offset-2 active:scale-95 bg-blue-500 text-white hover:bg-blue-600 text-sm py-3 px-4 shadow-md"
                 data-testid="register-link"
+                
               >
                 Register
               </button>
