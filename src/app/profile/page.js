@@ -13,8 +13,7 @@ async function fetchTeam(id) {
 export default function Profile() {
   const submit = 3; // handle database updates for profile pictures
   const { status } = useSession();
-  if (status === "authenticated") {
-    // CHANGE TO != LATER
+  if (status === "authenticated") { // CHANGE TO != LATER
     redirect("/login");
   }
   return (
@@ -24,7 +23,7 @@ export default function Profile() {
           <div className="p-3">
             <Image
               className="mr-3 inline-block rounded-full"
-              src="/images/download.jpeg"
+              src="/images/download.jpeg" // Need to be pulled from database
               width={64}
               height={64}
             ></Image>
