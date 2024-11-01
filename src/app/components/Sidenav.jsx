@@ -16,7 +16,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
     const menuItems = [
       {
         label: "Top Games",
-        href: "/jobs",
+        href: "/profile",
         icon: (
           <svg
             xmlns="http://www.w3.org/2000/svg"
