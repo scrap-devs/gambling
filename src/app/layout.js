@@ -5,6 +5,7 @@ import { Provider } from "./provider";
 import { Roboto } from 'next/font/google';
 import Sidenav from "./components/Sidenav";
 import Header from "./components/MobileHeader";
+import Topbar from "./components/TopBar";
 import React, { useEffect, useState } from 'react';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '300' });
@@ -37,6 +38,9 @@ export default function RootLayout({ children }) {
                 sidebarOpen={sidebarOpen}
                 setSidebarOpen={setSidebarOpen}
               />
+            </div>
+            <div className="flex w-screen h-6">
+            <Topbar/>
             </div>
             <div className="relative flex flex-col flex-1 lg:overflow-y-auto lg:overflow-x-hidden">
               {/* Render the Header component if in mobile mode */}
