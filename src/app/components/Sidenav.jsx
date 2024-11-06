@@ -162,7 +162,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       >
         <Image
           className="mt-2 mb-8 h-100 w-100"
-          src="/images/download.jpeg"
+          src="/images/favicon.png"
           height={32}
           width={32}
           alt="logo"
@@ -176,7 +176,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
         className={`${
           !sidebarExpanded ? "lg:hidden" : "block"
         } mt-1 mb-8 h-8 w-8`}
-        src="/images/download.jpeg"
+        src="/images/favicon.png"
         height={32}
         width={32}
         alt="logo"
