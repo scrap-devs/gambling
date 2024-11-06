@@ -8,6 +8,7 @@ import Header from "./components/MobileHeader";
 import React, { useEffect, useState } from 'react';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '300' });
+const a = fdsfs;
 
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
