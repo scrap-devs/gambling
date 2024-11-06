@@ -145,14 +145,14 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       <div
   id="sidebar"
   ref={sidebar}
-  className={`fixed flex flex-col bg-gray-400 z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:sidebar-expanded:w-20 shrink-0 ${
+  className={`fixed flex flex-col bg-gray-700 z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:sidebar-expanded:w-20 shrink-0 ${
     sidebarExpanded ? "w-56" : "w-20"
   } p-4 transition-all duration-200 ${
     sidebarOpen ? "translate-x-0" : "-translate-x-72"
   }`}
 >
   {/* Sidebar header */}
-  <div className="flex bg-gray-400 justify-between pr-3 sm:px-2">
+  <div className="flex justify-between pr-3 sm:px-2">
     {/* Sidebar Logo */}
     <Link href="/">
       <span
@@ -162,7 +162,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
       >
         <Image
           className="mt-2 mb-8 h-100 w-100"
-          src="/images/download.jpeg"
+          src="/images/favicon.png"
           height={32}
           width={32}
           alt="logo"
@@ -176,7 +176,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen}) {
         className={`${
           !sidebarExpanded ? "lg:hidden" : "block"
         } mt-1 mb-8 h-8 w-8`}
-        src="/images/download.jpeg"
+        src="/images/favicon.png"
         height={32}
         width={32}
         alt="logo"

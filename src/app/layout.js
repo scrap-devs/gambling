@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Provider>
         <body className={roboto.className}>
-          <div className="flex h-screen bg-gray-200">
+          <div className="flex h-screen bg-gray-600">
             <div>
               {/* Render the Sidenav component */}
               <Sidenav 
@@ -39,9 +39,7 @@ export default function RootLayout({ children }) {
                 setSidebarOpen={setSidebarOpen}
               />
             </div>
-            <div className="flex w-screen h-6">
-            <Topbar/>
-            </div>
+            
             <div className="relative flex flex-col flex-1 lg:overflow-y-auto lg:overflow-x-hidden">
               {/* Render the Header component if in mobile mode */}
               {isMobile && (
