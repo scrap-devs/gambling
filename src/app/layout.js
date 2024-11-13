@@ -5,7 +5,7 @@ import { Provider } from "./provider";
 import { Roboto } from 'next/font/google';
 import Sidenav from "./components/Sidenav";
 import Header from "./components/MobileHeader";
-import Topbar from "./components/TopBar";
+import Topbar from "./components/Topbar";
 import React, { useEffect, useState } from 'react';
 
 
@@ -50,18 +50,17 @@ export default function RootLayout({ children }) {
                 />
               )}
               {/* Render the main content */}
-              <div className="flex w-screen h-12 bg-white">
-                Hello
-              </div>
+              
+              <Topbar/>
+              
               <main>{children}</main>
             </div>
           </div>
           <div className="flex w-screen bg-gray-800">
             <div>
               {/* Render the TopBar component */}
-              <Topbar/>
             </div>
-            </div>
+          </div>
         </body>
       </Provider>
     </html>
