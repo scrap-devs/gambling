@@ -34,21 +34,24 @@ export default function RootLayout({ children }) {
           <div className="flex h-screen bg-gray-600">
             <div>
               {/* Render the Sidenav component */}
-              <Sidenav 
+              <Sidenav
                 sidebarOpen={sidebarOpen}
                 setSidebarOpen={setSidebarOpen}
               />
             </div>
-            
+
             <div className="relative flex flex-col flex-1 lg:overflow-y-auto lg:overflow-x-hidden">
               {/* Render the Header component if in mobile mode */}
               {isMobile && (
                 <Header
                   setSidebarOpen={setSidebarOpen}
-                 className="sticky top-0 bg-white border-b border-slate-200 z-30"
+                  className="sticky top-0 bg-white border-b border-slate-200 z-30"
                 />
               )}
               {/* Render the main content */}
+              <div className="flex w-screen h-12 bg-white">
+                Hello
+              </div>
               <main>{children}</main>
             </div>
           </div>
