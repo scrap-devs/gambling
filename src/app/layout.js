@@ -51,7 +51,9 @@ export default function RootLayout({ children }) {
               )}
               {/* Render the main content */}
               
-              <Topbar/>
+              <div>
+                <Topbar/>
+              </div>
               
               <main>{children}</main>
             </div>
