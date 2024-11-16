@@ -52,7 +52,9 @@ export default function RootLayout({ children }) {
               {/* Render the main content */}
               
               <div>
-                <Topbar/>
+              {!isMobile && (
+                <Topbar />
+              )}
               </div>
               
               <main>{children}</main>

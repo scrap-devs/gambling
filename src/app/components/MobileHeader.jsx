@@ -1,11 +1,13 @@
 // Import React library
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 // Define the MobileHeader component
 export default function MobileHeader({ sidebarOpen, setSidebarOpen }) {
   return (
     // Header container with sticky behavior, background, and border
-    <header className="sticky top-0 bg-white border-b border-slate-200 z-30">
+    <header className="sticky top-0 bg-gray-800 border-b border-slate-200 z-30">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 -mb-px">
           {/* Header: Left side */}
@@ -32,6 +34,20 @@ export default function MobileHeader({ sidebarOpen, setSidebarOpen }) {
                 <rect x="4" y="17" width="16" height="2" />
               </svg>
             </button>
+          </div>
+
+          <div className="text-white">Coins: {}</div>
+
+          <div>
+            <Link href="/login">
+              <Image
+                className="ml-2 h-100 w-100"
+                src="/images/loginicon.png"
+                height={32}
+                width={32}
+                alt="logo"
+              />
+            </Link>
           </div>
         </div>
       </div>
