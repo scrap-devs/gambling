@@ -4,10 +4,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoIosHome } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 // Define the Sidenav component
 export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
@@ -54,7 +53,10 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
                   setSidebarExpanded(!sidebarExpanded);
                 }}
               >
-                <CiMenuBurger color="white" size={25} />
+                <CiMenuBurger
+                  className="text-gray-400 hover:text-white transition-colors duration-100"
+                  size={25}
+                />
               </button>
             </div>
             {/* Home Button*/}
