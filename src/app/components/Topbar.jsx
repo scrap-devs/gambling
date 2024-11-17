@@ -19,8 +19,8 @@ export default function Topbar() {
   return (
     <>
       <div className="flex w-full h-12 bg-gray-800 justify-between items-center">
-        <div className="flex flex-row">
-          <Link href="/">
+        <div>
+          <Link href="/" className="flex items-center">
             <Image
               className="ml-2 h-100 w-100"
               src="/images/mainicon.png"
@@ -28,10 +28,10 @@ export default function Topbar() {
               width={32}
               alt="logo"
             />
+            <span className="flex ml-2 text-white content-center">
+              Coin Craze
+            </span>
           </Link>
-          <span className="flex ml-2 text-white content-center">
-            Coin Craze
-          </span>
         </div>
         <div className="text-white">Coins: {}</div>
         <div>
