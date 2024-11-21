@@ -4,18 +4,19 @@ import Image from "next/image";
 
 import { redirect } from "next/navigation";
 
-async function fetchTeam(id) {
-  const res = await fetch("https://...");
-  if (!res.ok) return undefined;
-  return res.json();
-}
+
 
 export default function Profile() {
   const submit = 3; // handle database updates for profile pictures
-  const { data: session, status } = useSession();
-  if (status === "authenticated") { // CHANGE TO != LATER
-    redirect("/login");
-  }
+  const {data: session} = useSession()
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      // The user is not authenticated, handle it here.
+      redirect('/login')
+    },
+  })
+
   return (
     <>
       <div className="w-full h-screen bg-slate-800 flex items-center justify-center text-white">

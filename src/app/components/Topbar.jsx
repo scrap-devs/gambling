@@ -15,6 +15,11 @@ export default function Topbar() {
       return "/login";
     }
   };
+  const showLoggedin = () => {
+    if (status === "authenticated") {
+      return <span className="text-white">logged in</span>;
+    }
+  };
 
   return (
     <>
@@ -44,6 +49,7 @@ export default function Topbar() {
               alt="logo"
             />
           </Link>
+          {showLoggedin()}
         </div>
       </div>
     </>
