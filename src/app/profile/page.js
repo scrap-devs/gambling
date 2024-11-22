@@ -1,21 +1,22 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { useSession, SessionProvider } from "next-auth/react";
 import Image from "next/image";
-
-import { redirect } from "next/navigation";
-
+import { redirect, useRouter } from "next/navigation";
+import { authOptions } from "@/lib/auth";
+import { getToken } from "next-auth/jwt";
 
 
 export default function Profile() {
   const submit = 3; // handle database updates for profile pictures
-  const {data: session} = useSession()
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
       // The user is not authenticated, handle it here.
-      redirect('/login')
+      redirect("/login");
     },
-  })
+  });
+  const { data: session } = useSession();
+  const router = useRouter();
 
   return (
     <>
@@ -31,7 +32,20 @@ export default function Profile() {
             ></Image>
             <span>Profile Picture</span>
           </div>
-          <div className="p-3">Account name: {}</div>
+          <SessionProvider>
+            <div className="p-3">Account name: {session?.user?.name}</div>
+          </SessionProvider>
+
+          <button
+            className="border border-solid border-black rounded"
+            onClick={() => {
+              signOut({ redirect: false }).then(() => {
+                router.push("/");
+              });
+            }}
+          >
+            Sign Out
+          </button>
         </div>
       </div>
     </>
