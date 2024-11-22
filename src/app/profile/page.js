@@ -33,7 +33,10 @@ export default function Profile() {
             <span>Profile Picture</span>
           </div>
           <SessionProvider>
-            <div className="p-3">Account name: {session?.user?.name}</div>
+            <div className="px-2">
+              <div className="pt-3">Account name: {session?.user?.name}</div>
+              <div className="pt-3">Account email: {session?.user?.email}</div>
+            </div>
           </SessionProvider>
 
           <button
