@@ -3,11 +3,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import { CiMenuBurger } from "react-icons/ci";
 
 export default function Topbar() {
-  const { status } = useSession();
+  const { status, data: session } = useSession();
   const redirect = () => {
     if (status === "authenticated") {
       return "/profile";
@@ -17,7 +17,11 @@ export default function Topbar() {
   };
   const showLoggedin = () => {
     if (status === "authenticated") {
-      return <span className="text-white">logged in</span>;
+      return (
+        <SessionProvider>
+          <span className="text-white">welcome, {session.user.name} </span>;
+        </SessionProvider>
+      );
     }
   };
 

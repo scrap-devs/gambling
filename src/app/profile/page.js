@@ -1,9 +1,7 @@
 "use client";
-import { useSession, SessionProvider } from "next-auth/react";
+import { useSession, SessionProvider, signOut } from "next-auth/react";
 import Image from "next/image";
 import { redirect, useRouter } from "next/navigation";
-import { authOptions } from "@/lib/auth";
-import { getToken } from "next-auth/jwt";
 
 
 export default function Profile() {
@@ -21,7 +19,7 @@ export default function Profile() {
   return (
     <>
       <div className="w-full h-screen bg-slate-800 flex items-center justify-center text-white">
-        <div className="border border-white rounded-md">
+        <div className="m-2 border border-white rounded-md">
           <div className="flex p-3 items-center">
             <Image
               className="mr-3 rounded-full"
@@ -38,17 +36,18 @@ export default function Profile() {
               <div className="pt-3">Account email: {session?.user?.email}</div>
             </div>
           </SessionProvider>
-
-          <button
-            className="border border-solid border-black rounded"
-            onClick={() => {
-              signOut({ redirect: false }).then(() => {
-                router.push("/");
-              });
-            }}
-          >
-            Sign Out
-          </button>
+          <div className="p-2">
+            <button
+              className="border border-solid border-white rounded p-1"
+              onClick={() => {
+                signOut({ redirect: false }).then(() => {
+                  router.push("/login");
+                });
+              }}
+            >
+              Sign Out
+            </button>
+          </div>
         </div>
       </div>
     </>
