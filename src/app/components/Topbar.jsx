@@ -3,16 +3,25 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import { CiMenuBurger } from "react-icons/ci";
 
 export default function Topbar() {
-  const { status } = useSession();
+  const { status, data: session } = useSession();
   const redirect = () => {
     if (status === "authenticated") {
       return "/profile";
     } else {
       return "/login";
+    }
+  };
+  const showLoggedin = () => {
+    if (status === "authenticated") {
+      return (
+        <SessionProvider>
+          <span className="text-white">welcome, {session.user.name} </span>;
+        </SessionProvider>
+      );
     }
   };
 
@@ -33,8 +42,9 @@ export default function Topbar() {
             </span>
           </Link>
         </div>
-        <div className="text-white">Coins: {}</div>
-        <div>
+        <div className="text-white">Coins: { }</div>
+        <div className="flex items-center">
+          {showLoggedin()}
           <Link href={redirect()}>
             <Image
               className="ml-2 h-100 w-100"
@@ -44,6 +54,7 @@ export default function Topbar() {
               alt="logo"
             />
           </Link>
+
         </div>
       </div>
     </>
