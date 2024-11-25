@@ -42,8 +42,9 @@ export default function Topbar() {
             </span>
           </Link>
         </div>
-        <div className="text-white">Coins: {}</div>
-        <div>
+        <div className="text-white">Coins: { }</div>
+        <div className="flex items-center">
+          {showLoggedin()}
           <Link href={redirect()}>
             <Image
               className="ml-2 h-100 w-100"
@@ -53,7 +54,7 @@ export default function Topbar() {
               alt="logo"
             />
           </Link>
-          {showLoggedin()}
+
         </div>
       </div>
     </>
