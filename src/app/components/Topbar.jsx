@@ -19,7 +19,7 @@ export default function Topbar() {
     if (status === "authenticated") {
       return (
         <SessionProvider>
-          <span className="text-white">welcome, {session.user.name} </span>;
+          <span className="text-white">Welcome, {session?.user?.name} </span>;
         </SessionProvider>
       );
     }
@@ -42,7 +42,7 @@ export default function Topbar() {
             </span>
           </Link>
         </div>
-        <div className="text-white">Coins: { }</div>
+        <div className="text-white">Coins: {session?.user?.coins}</div>
         <div className="flex items-center">
           {showLoggedin()}
           <Link href={redirect()}>

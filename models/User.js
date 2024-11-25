@@ -18,6 +18,10 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "Name is required"],
   },
+  coins: {
+    type: Number,
+    default: 0
+  }
 }, {
   timestamps: true,
 });
