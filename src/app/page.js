@@ -4,30 +4,62 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import "./globals.css";
 import "./page.module.css";
-import Sidenav from "./components/Sidenav";
+import Leaderboard from "./components/Leaderboard";
 
 export default function Home() {
-  return (
-    <div className="w-screen h-screen bg-zinc-800">
-      {/*Top Componenet */}
-      <div className="bg-zinc-900 flex flex-row w-screen h-1/5">
-        <div className="text-white basis-0 grow">alksdjflk;sadjf</div>
-        <div className="text-white basis-0 grow">alksdjflk;sadjf</div>
-      </div>
-      {/*Middle Component */}
-      <div className="bg-dark-black flex flex-row basis-0 grow-1 content-center justify-between h-1/5">
-        askjdfnhkjasdf
-      </div>
-      {/*Leaderboard */}
-      <div className="bg-zinc-700 h-3/5 w p-20 border-2 justify-center">
-        <h1 className="text-white">Leaderboard</h1>
-            <ul>
-              <li>
-                skjapdff
-              </li>
-            </ul>
-          </div>
-        </div>
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      // The user is not authenticated, handle it here.
 
+      <p>register</p>
+    },
+  })
+  const notLoggedin = () => {
+    if (status != "authenticated") {
+      return (
+        <div className="flex items-center justify-center bg-zinc-800 w-full p-8 space-x-20">
+          <div className="flex flex-col items-center p-6 rounded-lg shadow-lg w-400">
+            <span className="text-white w-1/2">Fun starts here.</span>
+            <button href="/Login" className="rounded-full pr-6 pl-6 content-center w-fit p-2 text-sm bg-blue-400">
+              Register now
+            </button>
+            <span>OR</span>
+            <div className="w-full flex flex-row justify-between">
+              <button className="w-fit text-sm rounded-none content-center bg-gray-300">
+                Google
+              </button>
+              <button className="w-fit">
+                Something
+              </button>
+              <button className="w-fit">
+                Apple
+              </button>
+            </div>
+          </div>
+          <figure class="max-w-lg">
+            <img class="h-auto max-w-full rounded-lg" src="/docs/images/examples/image-3@2x.jpg" alt="image description"></img>
+              <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption>
+          </figure>
+        </div>)
+
+    }
+    else {
+      return (
+        <div>
+          <span className="text-white size-60 text-xl">Welcome</span>
+        </div>
+      )
+    }
+  }
+  
+
+  return (
+    <div className="bg-zinc-800 h-screen w-screen">
+      {notLoggedin()}
+      <Leaderboard/>
+    </div>
+
+    
   );
 }
