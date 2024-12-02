@@ -4,10 +4,9 @@ import User from "@/models/User";
 export async function updateCoins(userId, amount) {
     await connectDB();
     try {
-        const objectId = mongoose.Types.ObjectId(userId);
         // Increment the coins using Mongoose's $inc operator
         const updatedUser = await User.findByIdAndUpdate(
-            objectId,
+            userId,
             { $inc: { coins: amount } },
             { new: true, runValidators: true }
         );
