@@ -5,9 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { SessionProvider, useSession } from "next-auth/react";
 import { CiMenuBurger } from "react-icons/ci";
+import { updateCoins } from "@/actions/updateCoins";
+
 
 export default function Topbar() {
-  const { status, data: session } = useSession();
+  const { status, data: session, update } = useSession();
   const redirect = () => {
     if (status === "authenticated") {
       return "/profile";
@@ -42,7 +44,13 @@ export default function Topbar() {
             </span>
           </Link>
         </div>
-        <div className="text-white">Coins: {session?.user?.coins}</div>
+        <div className="text-white">
+          Coins: {session?.user?.coins}
+          <button className="border border-white p-3 mx-2" onClick={() => {
+            updateCoins(session?.user?.id, 5);
+            update();
+          }}>add coin  </button>
+        </div>
         <div className="flex items-center">
           {showLoggedin()}
           <Link href={redirect()}>
