@@ -1,1 +1,5 @@
-export default function Blackjack()
+"use client";
+
+export default function Blackjack() {
+
+}
