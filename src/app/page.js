@@ -26,7 +26,7 @@ export default function Home() {
             </button>
             <span>OR</span>
             <div className="w-full flex flex-row justify-between">
-              <button className="w-fit text-sm rounded-none content-center bg-gray-300">
+              <button className="w-fit text-sm rounded-none content-center">
                 Google
               </button>
               <button className="w-fit">
@@ -39,7 +39,7 @@ export default function Home() {
           </div>
           <figure class="max-w-lg">
             <img class="h-auto max-w-full rounded-lg" src="/docs/images/examples/image-3@2x.jpg" alt="image description"></img>
-              <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption>
+            <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption>
           </figure>
         </div>)
 
@@ -52,14 +52,20 @@ export default function Home() {
       )
     }
   }
-  
+
 
   return (
     <div className="bg-zinc-800 h-screen w-screen">
       {notLoggedin()}
-      <Leaderboard/>
+      <Leaderboard />
+      <div className="flex justify-between">
+        <div className="flex flex-col">
+          <span className="text-xl text-white pl-4 pb-1">Coin Craze</span>
+          <span className="text-xs text-white pl-4">2024 Coin Craze | All Rights Reserved.</span>
+        </div>
+      </div>
     </div>
 
-    
+
   );
 }
