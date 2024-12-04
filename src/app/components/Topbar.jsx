@@ -28,7 +28,7 @@ export default function Topbar() {
 
   return (
     <>
-      <div className="flex w-full h-12 bg-gray-800 justify-between items-center">
+      <div className="flex w-full h-12 bg-zinc-900 justify-between items-center shadow-2xl">
         <div>
           <Link href="/" className="flex items-center">
             <Image

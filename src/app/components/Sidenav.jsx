@@ -7,6 +7,7 @@ import Image from "next/image";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoIosHome } from "react-icons/io";
 import { IconContext } from "react-icons";
+import { TfiMenu } from "react-icons/tfi";
 
 // Define the Sidenav component
 export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
@@ -36,7 +37,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
       <div
         id="sidebar"
         ref={sidebar}
-        className={`fixed flex flex-col bg-gray-800 z-40 left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:sidebar-expanded:w-20 shrink-0 ${sidebarExpanded ? "w-56" : "w-20"
+        className={`fixed flex flex-col bg-zinc-900 z-40 left-0 top-0 md:static md:left-auto md:top-auto md:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar lg:sidebar-expanded:w-20 shrink-0 ${sidebarExpanded ? "w-56" : "w-20"
           } p-4 transition-all duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-72"
           }`}
       >
@@ -50,7 +51,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
                   setSidebarExpanded(!sidebarExpanded);
                 }}
               >
-                <CiMenuBurger
+                <TfiMenu
                   className="text-gray-400 hover:text-white transition-colors duration-100"
                   size={25}
                 />
@@ -81,7 +82,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
                           : "hidden pointer-events-none"
                         }`}
                     >
-                      Home
+                      Top Games
                     </span>
                   </Link>
                 </div>
