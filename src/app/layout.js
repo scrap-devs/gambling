@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Provider>
         <body className={roboto.className}>
-          <div className="flex h-screen ">
+          <div className="flex h-screen">
             <div>
               {/* Render the Sidenav component */}
               <Sidenav

@@ -45,17 +45,6 @@ export default function Topbar() {
         </div>
         <div className="text-white">
           Coins: {session?.user?.coins}
-          <button
-            className="border border-white p-3 mx-2"
-            onClick={() => {
-              {
-                updateCoins(session?.user?.id, 5);
-              }
-              update();
-            }}
-          >
-            add coin{" "}
-          </button>
         </div>
         <div className="flex items-center">
           {showLoggedin()}

@@ -60,7 +60,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
             <div className="rounded-md bg-gray-700">
               <div className="p-3">
                 <div className="pb-3">
-                  <Link href="/" className="flex">
+                  <Link href="/games" className="flex">
                     <IoIosHome color="white" size={25} />
                     <span
                       className={`pl-6 text-white w-32 ${sidebarExpanded
@@ -68,7 +68,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
                           : "hidden pointer-events-none"
                         }`}
                     >
-                      
+                      Games
                     </span>
                   </Link>
                 </div>
