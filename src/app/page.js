@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import "./globals.css";
 import "./page.module.css";
 import Leaderboard from "./components/Leaderboard";
+import Image from "next/image";
 
 export default function Home() {
   const { status } = useSession({
@@ -37,10 +38,18 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <figure class="max-w-lg">
-            <img class="h-auto max-w-full rounded-lg" src="/docs/images/examples/image-3@2x.jpg" alt="image description"></img>
-            <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</figcaption>
-          </figure>
+          <div>
+            <Image
+            className="h-25 w-25 rounded-lg" 
+            src="/images/coincraze.png"
+            width={300}
+            height={300}
+            >
+
+
+            </Image>
+            <p className="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Image caption</p>
+          </div>
         </div>)
 
     }

@@ -5,13 +5,47 @@ import Link from 'next/link';
 
 export default function Games() {
     return (<>
-    <div className="flex flex-col bg-black w-screen h-screen">
-        <div className="flex h-20 w-screen bg-zinc-800 text-2xl align-middle"> Top Games</div>
-        <div className="flex-row bg-zinc-700 p-2 pt-5 h-screen w-screen">
-            <Link href="" className="text-black rounded-xl border border-blue bg-blue-50 hover:shadow-xl text-xl p-4"> Test Game </Link>
-            <Link href="/games/blackjack" className="text-black rounded-xl border border-blue bg-blue-50 hover:bg-white text-xl p-4"> Blackjack </Link>
-            <Link href="/games/" className="text-black rounded-xl border border-blue bg-blue-50 hover:shadow-xl text-xl p-4">  Plinko </Link>
+        <div className="bg-black w-screen h-screen box-border">
+
+            <div id="card-container" className="flex justify-center flex-wrap">
+                <div id="card" className="w-325px bg-white rounded overflow-hidden shadow-sm m-5 text-center">
+
+                    <Image
+                        src="/images/crash.png"
+                        width={200}
+                        height={200}>
+
+                    </Image>
+                    <div id="card-content">
+                        <Link href="games/crashGame" className='p-2'>Crash Game</Link>
+                    </div>
+                </div>
+                <div id="card" className="w-325px bg-white rounded overflow-hidden shadow-sm m-5 text-center">
+
+                    <Image
+                        src="/images/crash.png"
+                        width={200}
+                        height={200}>
+
+                    </Image>
+                    <div id="card-content">
+                        <Link href="/crashGame/page.js"><p>Plinko</p></Link>
+                    </div>
+                </div>
+                <div id="card" className="w-325px bg-white rounded overflow-hidden shadow-sm m-5 text-center">
+
+                    <Image
+                        src="/images/crash.png"
+                        width={200}
+                        height={200}>
+
+                    </Image>
+                    <div id="card-content">
+                        <Link href="/crashGame">Blackjack</Link>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
     </>)
 }
