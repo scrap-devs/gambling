@@ -16,12 +16,11 @@ export default function Topbar() {
       return "/login";
     }
   };
+
   const showLoggedin = () => {
     if (status === "authenticated") {
       return (
-        <SessionProvider>
-          <span className="text-white">Welcome, {session?.user?.name} </span>;
-        </SessionProvider>
+        <span className="text-white">Welcome, {session?.user?.name}</span>
       );
     }
   };

@@ -1,32 +1,34 @@
-const express = require('express');
-const http = require('http');
-const { Server } = require('socket.io');
+const WebSocket = require('ws');
+const mongoose = require('mongoose');
+const User = require('./models/User'); // Import the User model
 
-const app = express();
-const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3000", // Allow React app
-    methods: ["GET", "POST"]
-  }
-});
+// Set up MongoDB connection
+mongoose.connect('mongodb://localhost:27017/leaderboardDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
-io.on('connection', (socket) => {
-  console.log('A user connected');
+// Create WebSocket server
+const wss = new WebSocket.Server({ port: 8080 });
 
-  // Example: Send leaderboard updates
-  setInterval(() => {
-    socket.emit('leaderboardUpdate', [
-      { name: "Player 1", originalAmount: 100, multiplier: 2, percentageUp: 50 },
-      { name: "Player 2", originalAmount: 200, multiplier: 3, percentageUp: 75 }
-    ]);
-  }, 5000);
-
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
+// On WebSocket connection, send leaderboard data
+wss.on('connection', (ws) => {
+  console.log('New client connected');
+  
+  // Send initial leaderboard data on connection
+  User.find().then((users) => {
+    ws.send(JSON.stringify(users)); // Send users data to the client
   });
-});
 
-server.listen(3000, () => {
-  console.log('WebSocket server running on http://localhost:3000');
+  // Handle messages from the client (if needed)
+  ws.on('message', (message) => {
+    console.log('Received:', message);
+  });
+
+  // Handle disconnection
+  ws.on('close', () => {
+    console.log('Client disconnected');
+  });
 });
