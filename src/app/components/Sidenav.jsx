@@ -61,7 +61,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
             <div className="rounded-md bg-gray-700">
               <div className="p-3">
                 <div className="pb-3">
-                  <Link href="/games" className="flex">
+                  <Link href="/games" className="flex rounded-md">
                     <IoIosHome color="white" size={25} />
                     <span
                       className={`pl-6 text-white w-32 ${sidebarExpanded

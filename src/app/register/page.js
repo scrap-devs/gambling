@@ -65,7 +65,7 @@ export default function Register() {
 
                 <form ref={ref} action={handleSubmit} className="space-y-4">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full name</label>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Username</label>
                         <input
                             autoComplete="name"
                             name="name"

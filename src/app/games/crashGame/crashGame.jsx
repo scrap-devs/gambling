@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 export default function CrashGame() {
+
+  const [start, setStart] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
   const [isCrashed, setIsCrashed] = useState(false);
   const [bet, setBet] = useState(0);
   const [cashOut, setCashOut] = useState(false);
+  const [currentMoney, setCurrentMoney] = useState(1);
 
   useEffect(() => {
     let crashPoint = Math.random() * (100 - 2) + 2; // Random crash point between 2x and 100x
@@ -14,8 +17,10 @@ export default function CrashGame() {
     const interval = setInterval(() => {
       if (!isCrashed && !cashOut) {
         time += 0.1;
+        let x = multiplier * bet
         let currentMultiplier = 1 * Math.exp(rate * time); // Exponential increase
         setMultiplier(currentMultiplier);
+        setCurrentMoney(x)
 
         if (currentMultiplier >= crashPoint) {
           setIsCrashed(true); // The game crashes
@@ -30,7 +35,21 @@ export default function CrashGame() {
   const handleCashOut = () => {
     setCashOut(true);
     alert(`You cashed out at ${multiplier.toFixed(2)}x`);
+    return <>
+    <p>You cashed out at {bet * multiplier}</p>
+    </>
   };
+
+ const restart = () => {
+  setMultiplier(1)
+  setIsCrashed(false)
+ }
+
+ const handleSubmit = async (formData) => {
+        const num = formData.get("number")
+        setBet(num);
+        
+        };
 
   return (
     <div>
@@ -38,8 +57,15 @@ export default function CrashGame() {
         <div id="Header Container">
           <h1>Crash Game</h1>
         </div>
-        <div id="Game Container" className="flex-row justify-between align-middle">
-          <div id="Betting Container">
+        <div className="flex-row">
+          <div>
+          <form action={handleSubmit} className="flex flex-col">
+            <div>
+            <label>bet amount</label>
+            <input type="number" name="number"></input>
+            </div>
+            <button type="submit" >submit</button>
+          </form>
             <p>Bet: {bet}</p>
           </div>
           <div id="Display Crash Container">
@@ -49,8 +75,9 @@ export default function CrashGame() {
         </div>
 
         <button onClick={handleCashOut} disabled={isCrashed || cashOut}>
-          Cash Out
+          Cash Out: current money : {currentMoney}
         </button>
+        <button onClick={restart}>restart</button>
       </div>
     </div>
   );
