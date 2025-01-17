@@ -17,10 +17,10 @@ export default function CrashGame() {
     const interval = setInterval(() => {
       if (!isCrashed && !cashOut) {
         time += 0.1;
-        let x = multiplier * bet
         let currentMultiplier = 1 * Math.exp(rate * time); // Exponential increase
+        let x = currentMultiplier * bet
         setMultiplier(currentMultiplier);
-        setCurrentMoney(x)
+        setCurrentMoney(x.toFixed(2))
 
         if (currentMultiplier >= crashPoint) {
           setIsCrashed(true); // The game crashes
@@ -46,7 +46,7 @@ export default function CrashGame() {
  }
 
  const handleSubmit = async (formData) => {
-        const num = formData.get("number")
+        let num = formData.get("number")
         setBet(num);
         
         };
