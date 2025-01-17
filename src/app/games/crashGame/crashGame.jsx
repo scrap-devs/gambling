@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function CrashGame() {
 
-  const [start, setStart] = useState(0);
+  const [start, setStart] = useState(false);
   const [multiplier, setMultiplier] = useState(1);
   const [isCrashed, setIsCrashed] = useState(false);
   const [bet, setBet] = useState(0);
@@ -36,20 +36,24 @@ export default function CrashGame() {
     setCashOut(true);
     alert(`You cashed out at ${multiplier.toFixed(2)}x`);
     return <>
-    <p>You cashed out at {bet * multiplier}</p>
+      <p>You cashed out at {bet * multiplier}</p>
     </>
   };
 
- const restart = () => {
-  setMultiplier(1)
-  setIsCrashed(false)
- }
+  const restart = () => {
+    setMultiplier(1)
+    setIsCrashed(false)
+    setBet(0)
+  }
 
- const handleSubmit = async (formData) => {
-        let num = formData.get("number")
-        setBet(num);
-        
-        };
+  const handleSubmit = async (formData) => {
+    let num = formData.get("number")
+    setBet(num);
+  };
+
+  useEffect(() => {
+     setStart(true)
+  }, [handleSubmit])
 
   return (
     <div>
@@ -59,13 +63,13 @@ export default function CrashGame() {
         </div>
         <div className="flex-row">
           <div>
-          <form action={handleSubmit} className="flex flex-col">
-            <div>
-            <label>bet amount</label>
-            <input type="number" name="number"></input>
-            </div>
-            <button type="submit" >submit</button>
-          </form>
+            <form action={handleSubmit} className="flex flex-col">
+              <div>
+                <label>bet amount</label>
+                <input type="number" name="number" default="0"></input>
+              </div>
+              <button type="submit" >submit</button>
+            </form>
             <p>Bet: {bet}</p>
           </div>
           <div id="Display Crash Container">
