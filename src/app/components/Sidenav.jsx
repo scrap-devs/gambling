@@ -82,7 +82,7 @@ export default function Sidenav({ sidebarOpen, setSidebarOpen }) {
                           : "hidden pointer-events-none"
                         }`}
                     >
-                      Top Games
+                      Home
                     </span>
                   </Link>
                 </div>
